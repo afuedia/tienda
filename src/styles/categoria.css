@@ -1,0 +1,106 @@
+/* ===== Listado con FLEX ===== */
+.section#articulos{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 16px;
+  align-items: stretch;      /* mismas alturas */
+  justify-content: center;   /* centra las filas; cambia a flex-start si prefieres */
+}
+
+/* Carta */
+.carta{
+  flex: 1 1 240px;           /* grow=1 shrink=1 base=240px */
+  max-width: 360px;
+  min-width: 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  background: var(--superficie);
+  border: 1px solid var(--borde);
+  border-radius: 12px;
+  padding: 14px;
+  box-shadow: 0 4px 8px var(--sombra-1);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.carta:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px var(--sombra-1);
+}
+
+/* Imagen del producto */
+.carta .imagen{
+  width: 100%;
+  height: 170px;
+  object-fit: contain;
+  display: block;
+}
+
+/* Título */
+.carta .articulo{
+  font-weight: 700;
+  color: var(--texto);
+  line-height: 1.25;
+  min-height: 2.5em;                 /* ~2 líneas */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;             /* recorte a 2 líneas */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Precio */
+.carta .precio{
+  color: var(--exito);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+/* Espaciado: empuja botones hacia abajo si hay hueco */
+.carta .precio,
+.carta .articulo { margin-bottom: 4px; }
+.carta > button:first-of-type { margin-top: auto; }
+
+/* Botones (base) */
+.carta button{
+  appearance: none;
+  border: 1px solid var(--borde);
+  background: var(--superficie);
+  color: var(--texto);
+  padding: 10px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  font: inherit;
+  transition: background .15s ease, border-color .15s ease, transform .05s ease;
+}
+.carta button + button{ margin-top: 8px; }
+.carta button:hover{ background: var(--fondo); }
+.carta button:active{ transform: translateY(1px); }
+.carta button:focus-visible{ outline: 2px solid var(--primario); outline-offset: 2px; }
+
+/* “Más información” (.boton) */
+.carta .boton{
+  border-color: var(--primario);
+  color: var(--primario);
+  background: #FFFFFF; /* o un leve tinte si quieres */
+}
+
+/* “Añadir al carrito” (ahora con clase explícita) */
+.carta .btn-add{
+  background: var(--primario);
+  border-color: var(--primario);
+  color: var(--primario-fg);
+}
+.carta .btn-add:hover{ background: #2563EB; }   /* primario un punto más oscuro */
+.carta .btn-add:disabled{ opacity:.7; cursor: default; }
+
+/* Ajustes responsivos */
+@media (min-width: 1200px){
+  .section#articulos{ gap: 20px; }
+  .carta{ padding: 16px; }
+  .carta .imagen{ height: 190px; }
+}
+@media (max-width: 420px){
+  .carta{ flex-basis: 100%; max-width: 100%; }
+  .carta .imagen{ height: 150px; }
+}

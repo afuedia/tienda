@@ -39,6 +39,7 @@ for (let i = 0; i < datos.length; i++) {
   precio.classList.add("precio")
   imagen.classList.add("imagen")
   boton.classList.add("boton")
+  btnAdd.classList.add("btn-add")
   
   //Inserto la carta en su seccion
  articulos.appendChild(carta);

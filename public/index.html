@@ -4,13 +4,34 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>La tienda</title>
+  <link rel="stylesheet" href="../src/styles/navbar.css">
   <link rel="stylesheet" href="../src/styles/reset.css">
+  <link rel="stylesheet" href="../src/styles/root.css">
   <link rel="stylesheet" href="../src/styles/styles.css">
 </head>
 <body>
+  
   <ul id="categorias" class="ul"></ul>
-  <section id="articulos" class="section"></section>
+  
+  <main class="main">
+    <section class="main__section">
+     
+        <h1 class="main__h1">Tu Fake Store favorita</h1>
+        <p class="main__p">Catálogo de ejemplo con datos de Fake Store API. Diseño limpio, UX rápida.</p>
+      
+     
+    </section>
+  </main>
+
+  
+
+  <footer class="container">
+    
+  </footer>
+
+  <!-- Mantén exactamente los mismos scripts -->
   <script type="module" src="../src/scripts/ui/navbar.js"></script>
   <script type="module" src="../src/scripts/pages/main.js"></script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>

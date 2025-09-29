@@ -1,4 +1,4 @@
-import { getCartCount } from "./cart.js";
+import { getCartCount } from "../pages/cart.js";
 
 const URL_BASE = "https://fakestoreapi.com"
 

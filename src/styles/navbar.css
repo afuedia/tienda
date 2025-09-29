@@ -1,0 +1,21 @@
+.ul{
+  height: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-weight: 700;
+  background: var(--nav-fondo);
+  li {
+height: 100%;
+    align-items: center;
+    padding-block: 1rem;
+    padding-inline: .75rem;
+    border-radius: 8px;
+
+    &:hover { background: var(--nav-hover); }
+    &::first-letter { text-transform: uppercase; }
+  }
+  
+  
+}

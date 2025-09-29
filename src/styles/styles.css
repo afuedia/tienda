@@ -1,74 +1,25 @@
-.ul {
-  height: 50px;
-  width: 100%;
-  background-color: aqua;
-  display: flex;
-   justify-content: space-around;
-   padding: 1rem;
-   font-weight: bold;
-}
-.section {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  padding: 1rem;
-  gap: 0.5rem;
-}
-.carta {
-  padding: 1rem;
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 300px;
-  height: 400px;
-  overflow: hidden;
-  transition: transform 0.3s, box-shadow 0.3s;
-  
-  &:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+.main {
+  .main__section{
+    display: grid;
+    gap: 12px;
+    margin-block: 24px;
+      .main__h1 {
+        margin: 0 0 4px 0;
+        font-family: Poppins, Inter, system-ui, sans-serif;
+        font-weight: 800;
+        font-size: clamp(28px, 4vw, 44px);
+        line-height: 1.1;
+        color: var(--texto);
+      }
+      .main__p{
+        margin: 0;
+        color: var(--texto-suave);
+        font-size: 18px;
+      }
   }
 }
 
-.imagen {
-  width: auto;
-  height: 50%;
-  margin: auto;
-}
-.articulo {
-  font-weight: bold;
-}
 
 
 
-.precio {
-  font-size: 1.2em;
-  color: #008c00;
-  display: block;
-  margin-bottom: 10px;
-}
 
-.comprar {
-  background: #008c00;
-  color: #fff;
-  border: none;
-  border-radius: 20px;
-  padding: 10px 20px;
-  cursor: pointer;
-  font-size: 1em;
-}
-
-.contenido {
-  padding: 20px;
-  text-align: center;
-}
-
-.contenido h3 {
-  margin-bottom: 10px;
-  font-size: 1.5em;
-  color: #333;
-}
-
-.contenido p {
-  color: #666;
-}

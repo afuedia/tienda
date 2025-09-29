@@ -1,0 +1,27 @@
+:root {
+  /* Base */
+  --fondo:            #F8FAFC;  /* fondo página */
+  --superficie:       #FFFFFF;  /* tarjetas / bloques */
+  --texto:            #0F172A;  /* texto principal */
+  --texto-suave:      #64748B;  /* texto secundario */
+
+  /* Marca / acciones */
+  --primario:         #3B82F6;  /* azul principal */
+  --primario-fg:      #FFFFFF;  /* texto sobre primario */
+  --acento:           #22C55E;  /* verde acento */
+
+  /* Estados */
+  --exito:            #22C55E;  /* precio, botón comprar */
+  --exito-fuerte:     #1BA34B;  /* hover/active del éxito */
+
+  /* Bordes y separadores */
+  --borde:            #E5E7EB;
+
+  /* Navbar */
+  --nav-fondo:        #E8F1FF;  /* fondo navbar (suave, azulado) */
+  --nav-hover:        #60A5FA;  /* hover de categoría */
+
+  /* Sombras (hex con alpha) */
+  --sombra-1:         #0000001E; /* ≈12% */
+  --sombra-2:         #00000033; /* ≈20% */
+}
