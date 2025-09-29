@@ -1,61 +1,80 @@
-// cart.js
-const STORAGE_KEY = "cart:v1";
 
-function readCart() {
+// cart.js (versión simple sin CustomEvent)
+const STORAGE_KEY = "carrito:v1";
+
+/* ========= Helpers internos ========= */
+function leerCarrito() {
   try {
     return JSON.parse(localStorage.getItem(STORAGE_KEY)) ?? [];
   } catch {
     return [];
   }
 }
-function writeCart(cart) {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(cart));
-  window.dispatchEvent(new CustomEvent("cart:updated", { detail: getCartSummary() }));
+
+function escribirCarrito(carrito) {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(carrito));
+  if (typeof window.actualizarContadorCarrito === "function") {
+    window.actualizarContadorCarrito();
+  }
 }
 
-export function getCart() {
-  return readCart();
+
+export function obtenerCarrito() {
+  return leerCarrito();
 }
-export function clearCart() {
-  writeCart([]);
+
+export function vaciarCarrito() {
+  escribirCarrito([]);
 }
-export function addToCart(product, qty = 1) {
-  const cart = readCart();
-  const idx = cart.findIndex(i => i.id === product.id);
+
+export function anadirAlCarrito(producto, cantidad = 1) {
+  const carrito = leerCarrito();
+  const idx = carrito.findIndex((i) => i.id === producto.id);
+
   if (idx >= 0) {
-    cart[idx].qty += qty;
+    carrito[idx].qty += cantidad;
   } else {
-    cart.push({
-      id: product.id,
-      title: product.title,
-      price: product.price,
-      image: product.image,
-      qty
+    carrito.push({
+      id: producto.id,
+      title: producto.title,
+      price: producto.price,
+      image: producto.image,
+      qty: cantidad,
     });
   }
-  writeCart(cart);
+  escribirCarrito(carrito);
 }
-export function setQty(id, qty) {
-  const cart = readCart().map(i => i.id === id ? { ...i, qty: Math.max(1, qty) } : i);
-  writeCart(cart);
+
+export function fijarCantidad(id, cantidad) {
+  const carrito = leerCarrito().map((i) =>
+    i.id === id ? { ...i, qty: Math.max(1, cantidad) } : i
+  );
+  escribirCarrito(carrito);
 }
-export function changeQty(id, delta) {
-  const cart = readCart().map(i => i.id === id ? { ...i, qty: Math.max(1, i.qty + delta) } : i);
-  writeCart(cart);
+
+export function cambiarCantidad(id, delta) {
+  const carrito = leerCarrito().map((i) =>
+    i.id === id ? { ...i, qty: Math.max(1, i.qty + delta) } : i
+  );
+  escribirCarrito(carrito);
 }
-export function removeItem(id) {
-  const cart = readCart().filter(i => i.id !== id);
-  writeCart(cart);
+
+export function eliminarArticulo(id) {
+  const carrito = leerCarrito().filter((i) => i.id !== id);
+  escribirCarrito(carrito);
 }
-export function getCartSummary() {
-  const cart = readCart();
-  const count = cart.reduce((a, i) => a + i.qty, 0);
-  const total = cart.reduce((a, i) => a + i.qty * i.price, 0);
-  return { count, total };
+
+export function obtenerResumenCarrito() {
+  const carrito = leerCarrito();
+  const cantidad = carrito.reduce((a, i) => a + i.qty, 0);
+  const total = carrito.reduce((a, i) => a + i.qty * i.price, 0);
+  return { count: cantidad, total };
 }
-export function getCartCount() {
-  return getCartSummary().count;
+
+export function obtenerCantidadCarrito() {
+  return obtenerResumenCarrito().count;
 }
-export function getCartTotal() {
-  return getCartSummary().total;
+
+export function obtenerTotalCarrito() {
+  return obtenerResumenCarrito().total;
 }

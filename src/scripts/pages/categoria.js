@@ -1,4 +1,4 @@
-import { addToCart } from "./cart.js";
+import { anadirAlCarrito } from "./cart.js";
 
 const URL_BASE = "https://fakestoreapi.com"
 const END_POINT = "/products/category/"
@@ -55,7 +55,7 @@ for (let i = 0; i < datos.length; i++) {
   btnAdd.textContent = "Añadir al carrito";
   btnAdd.addEventListener("click", async () => {
   
-  addToCart(datos[i], 1);
+  anadirAlCarrito(datos[i], 1);
   btnAdd.textContent = "Añadido ✅";
   setTimeout(() => (btnAdd.textContent = "Añadir al carrito"), 1200);
 });
