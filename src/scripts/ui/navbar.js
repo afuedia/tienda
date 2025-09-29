@@ -3,7 +3,7 @@ import { getCartCount } from "./cart.js";
 const URL_BASE = "https://fakestoreapi.com"
 
 const categorias = document.getElementById("categorias")
-const articulos = document.getElementById("articulos")
+
 
 // Función para pedir array de categorias
 async function obtenerCategorias() {
@@ -13,7 +13,7 @@ async function obtenerCategorias() {
   return datos
 }
 const categories = await obtenerCategorias()
-
+console.log(categories)
 //Utilizo un buble para pintar las categorias
 function pintarCategorias() {
 for (let i = 0 ; i < categories.length; i++) {
