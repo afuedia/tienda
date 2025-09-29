@@ -1,0 +1,44 @@
+/* 1. Aplica box-sizing: border-box a todo */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 2. Elimina márgenes */
+* {
+  margin: 0;
+}
+
+/* 3. Interlineado por defecto más legible */
+p {
+  line-height: 1.5;
+}
+
+/* 4. Quita los estilos por defecto de listas si tienen el rol "list" */
+/* Esto es útil para listas personalizadas sin viñetas ni números */
+ul,
+ol {
+  list-style: none;
+}
+
+/* 5. Hace que las imágenes se adapten al ancho del contenedor */
+/* Evita que las imágenes se salgan del diseño */
+img,
+picture, video, svg {
+  max-width: 100%;
+  display: block;
+}
+
+/* Hace que los formularios hereden los estilos */
+input, button, textarea, select {
+  font: inherit;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
